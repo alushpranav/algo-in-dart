@@ -4,9 +4,9 @@ sort(List<int> arr) {
     int j = i - 1;
     while (j >= 0 && temp < arr[j]) {
       arr[j + 1] = arr[j];
-      arr[j] = temp;
       j--;
     }
+    arr[j + 1] = temp;
   }
 }
 
