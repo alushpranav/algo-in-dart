@@ -1,4 +1,4 @@
-sort(List<int> arr) {
+void selection_sort(List<int> arr) {
   for (int i = 0; i < arr.length - 1; i++) {
     int min = i;
     for (int j = i + 1; j < arr.length; j++) {
@@ -16,6 +16,6 @@ sort(List<int> arr) {
 
 void main() {
   List<int> arr = [3, 2, 5, 4, 6, 1];
-  sort(arr);
+  selection_sort(arr);
   print(arr);
 }

@@ -20,15 +20,15 @@ List<int> merge(List<int> ar1, List<int> ar2) {
   return merged;
 }
 
-sort(List<int> arr) {
+merge_sort(List<int> arr) {
   if (arr.length == 1) return arr;
   int mid = (arr.length / 2).floor();
   List<int> left = arr.sublist(0, mid);
   List<int> right = arr.sublist(mid);
-  return merge(sort(left), sort(right));
+  return merge(merge_sort(left), merge_sort(right));
 }
 
 void main() {
   List<int> arr = [3, 2, 5, 4, 6, 1];
-  print(sort(arr));
+  print(merge_sort(arr));
 }
