@@ -1,7 +1,7 @@
-class Node<T> {
+class Node {
   Node({required this.value, this.next});
-  T value;
-  Node<T>? next;
+  int value;
+  Node? next;
 
   @override
   String toString() {
@@ -10,14 +10,14 @@ class Node<T> {
   }
 }
 
-class LinkedList<E> {
-  Node<E>? head;
-  Node<E>? tail;
+class LinkedList {
+  Node? head;
+  Node? tail;
   int _length = 0;
   int get length => _length;
   bool get isEmpty => head == null;
 
-  void unshift(E value) {
+  void unshift(int value) {
     head = Node(value: value, next: head);
     tail ??= head;
     _length++;
@@ -33,7 +33,7 @@ class LinkedList<E> {
     head = head?.next;
   }
 
-  void push(E value) {
+  void push(int value) {
     if (isEmpty) {
       unshift(value);
       return;
@@ -49,8 +49,8 @@ class LinkedList<E> {
       head = tail = null;
       return;
     }
-    var prevNode = head;
-    var currNode = head;
+    Node? prevNode = head;
+    Node? currNode = head;
     while (currNode?.next != null) {
       prevNode = currNode;
       currNode = currNode?.next;
@@ -60,8 +60,8 @@ class LinkedList<E> {
     _length--;
   }
 
-  Node<E>? nodeAt(int index) {
-    var currentNode = head;
+  Node? nodeAt(int index) {
+    Node? currentNode = head;
     var currentIndex = 0;
     while (currentNode != null && currentIndex < index) {
       currentNode = currentNode.next;
@@ -79,17 +79,8 @@ class LinkedList<E> {
 
 void main() {
   LinkedList ll = LinkedList();
-  print(ll.toString());
-  ll.push('a');
-  ll.push('b');
-  print(ll.toString());
-  ll.unshift('x');
-  print(ll.toString());
-  ll.shift();
+  ll.push(4);
   ll.pop();
+  ll.unshift(5);
   print(ll.toString());
-  ll.push('t');
-  ll.unshift('s');
-  print(ll.toString());
-  print(ll.length);
 }
