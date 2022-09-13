@@ -26,32 +26,30 @@ class Stack {
 
   push(int val) {
     final node = Node(value: val);
-    _length++;
-    if (head == null) {
+    if (head == null)
       head = node;
-      return;
+    else {
+      node.next = head;
+      head = node;
     }
-    node.next = head;
-    head = node;
+    _length++;
   }
 
   int? pop() {
     if (head == null) return null;
     int? temp;
-    if (_length == 1) {
-      temp = head?.value;
+    temp = head?.value;
+    if (_length == 1)
       head = null;
-    } else {
-      temp = head?.value;
+    else
       head = head?.next;
-    }
     _length--;
     return temp;
   }
 
   @override
   String toString() {
-    return head == null ? 'Stack Empty!' : head.toString() + ' <=';
+    return head == null ? 'Stack Empty!' : head.toString() + '|  <=>';
   }
 }
 
@@ -60,7 +58,7 @@ void main() {
   st.push(5);
   st.push(6);
   st.push(7);
-  st.pop();
-  print(st.length);
+  print(st.toString());
+  print(st.pop());
   print(st.toString());
 }
