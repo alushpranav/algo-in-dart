@@ -144,6 +144,7 @@ void main() {
   List<int> a = [4, 2, 6, 1, 3, 5, 7];
   final bst = BST();
   a.forEach((e) => bst.insert(e));
+  print(bst.bfs());
   print(bst.preOrder());
   print(bst.inOrder());
   print(bst.postOrder());
